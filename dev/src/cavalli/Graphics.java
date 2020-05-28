@@ -16,8 +16,10 @@ public class Graphics  implements ActionListener{
     //Initialize components
     private JFrame frame;       //init frame       
     private JPanel pb;          //button panel
+    private JLabel imglabel;
     private JButton start;      //start button
     private JButton quit;       //quit button (ends the program)
+    private ImageIcon doom;     //horse img1
     
     //inputGUI components
     private JFrame horseFrame;  //horse frame for the HorseGUI method
@@ -34,7 +36,7 @@ public class Graphics  implements ActionListener{
         frame=new JFrame();                                     //frame created
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   //if you close the frame, the program ends.
         frame.setVisible(true);                                 //the frame interface is visible
-        frame.setTitle(" Corse clandestine di cavalli ");       //title
+        frame.setTitle(" Horse Race Launcher ");                //title
         frame.setBounds(600, 600, 600, 600);                    
         frame.setResizable(false);                              //the user cannot resize the frame
         
@@ -55,8 +57,14 @@ public class Graphics  implements ActionListener{
        pb.setPreferredSize(new Dimension(600,600));
        pb.setLayout(null);
        
+   /*    //image
+       doom=new ImageIcon(getClass().getResource("img/doom.png"));
+       imglabel=new JLabel(doom);
+       imglabel.setBounds(0,0,20,20);       */
+       
        //graphic hierarchy  
        frame.add(pb);
+    //   frame.add(imglabel);
         pb.add(start);
         pb.add(quit);  
     }

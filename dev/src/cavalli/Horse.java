@@ -6,31 +6,47 @@
 package cavalli;
 
 import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 
 /**
  *
  * @author aa
  */
-public class Horse {
+public class Horse extends JPanel{
     
-    private String name;
-    private int code;
-    Random rand;
+    private int x;          //x coordinate
+    private int y;          //y coordinate
+    private ImageIcon doom;
     
-    public Horse(String name, int code)
+    public Horse(int x, int y)
     {
-        this.name=name;
-        this.code=rand.nextInt(10);
+        super();
+        this.x=x;
+        this.y=y;
+        setSize(40,40);
+        doom= new ImageIcon(getClass().getResource("doom.png"));
+        setVisible(true);     
     }
     
-    public String getName()
+    public int getX()
     {
-        return this.name;
+        return this.x;
     }
     
-    public int getCode()
+    public int getY()
     {
-        return this.code;
+        return this.y;
+    }
+    
+    public void setX(int x)
+    {
+        this.x=x;
+    }
+    
+    public void setY(int y)
+    {
+        this.y=y;
     }
 }
