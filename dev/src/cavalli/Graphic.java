@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cavalli;
 
 import java.awt.*;
@@ -11,7 +7,11 @@ import java.awt.event.ActionListener;
 import static java.lang.Integer.parseInt;
 import javax.swing.*;
 
-public class Graphics  implements ActionListener{
+/**
+ *
+ * @author Majid Alessio
+ */
+public class Graphic  implements ActionListener{
     
     //Initialize components
     private JFrame frame;       //init frame       
@@ -57,14 +57,8 @@ public class Graphics  implements ActionListener{
        pb.setPreferredSize(new Dimension(600,600));
        pb.setLayout(null);
        
-   /*    //image
-       doom=new ImageIcon(getClass().getResource("img/doom.png"));
-       imglabel=new JLabel(doom);
-       imglabel.setBounds(0,0,20,20);       */
-       
        //graphic hierarchy  
        frame.add(pb);
-    //   frame.add(imglabel);
         pb.add(start);
         pb.add(quit);  
     }
@@ -123,11 +117,9 @@ public class Graphics  implements ActionListener{
     
     public void horseGUI()
     {
-        //setting all the object i don't need to non visible
-        alert.setVisible(false);
-        hi.setVisible(false);
-        info.setVisible(false);
-        confirm.setVisible(false);
+       //creating the race frame
+       horseFrame.dispose();
+       new RaceFrame(this);
     }
     
     public int getInput()
@@ -140,7 +132,7 @@ public class Graphics  implements ActionListener{
         return appo;
     }
     
-    public Graphics()
+    public Graphic()
     {
        Initialize();
     }

@@ -30,8 +30,8 @@ public class RaceFrame extends JFrame{
     {
 	n=g.getInput();         
 	setSize(600, 600);
-	setLocation(10, 30);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
 	lane = new HorseLane();
 	h = new Horse[n];
 	threads = new ThreadHorse[n];
@@ -46,7 +46,7 @@ public class RaceFrame extends JFrame{
 	//lanes are now visible
 	this.add(lane);
 	setVisible(true);
-        this.setSize(600, 550);
+        this.setSize(600, 530);
     }
     
  /**
@@ -128,7 +128,7 @@ public class RaceFrame extends JFrame{
         {
             h[x].paint(gr);
         }
-	screen.drawImage(bf, 0, 30, this);
+	screen.drawImage(bf, 0, 20, this);
 	gr.dispose();
 	}
     }

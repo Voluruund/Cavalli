@@ -1,52 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cavalli;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.Random;
-import javax.swing.ImageIcon;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
 
 /**
  *
- * @author aa
+ * @author Majid Alessio
  */
-public class Horse extends JPanel{
+public class Horse extends JPanel
+{
     
     private int x;          //x coordinate
     private int y;          //y coordinate
-    private ImageIcon doom;
+    private Image doom;
     
-    public Horse(int x, int y)
+ /**
+ *constructor method
+ * @param x
+ * @param y
+ */
+ public Horse(int x, int y) 
     {
-        super();
-        this.x=x;
-        this.y=y;
-        setSize(40,40);
-        doom= new ImageIcon(getClass().getResource("doom.png"));
-        setVisible(true);     
+	this.x = 0;
+	this.y = y;
+	Toolkit tk = Toolkit.getDefaultToolkit();
+
+            try 
+            {
+                doom=ImageIO.read(getClass().getResource("../img/doom.png"));
+            } 
+            catch (IOException e) 
+            {
+                Logger.getLogger(Horse.class.getName()).log(Level.SEVERE, null, e);
+            }
+		MediaTracker mt = new MediaTracker(this);
+		mt.addImage(doom, 1);
+		try 
+                {
+                    mt.waitForID(1);
+		} 
+                catch (Exception e) 
+                {
+			//unreported exception
+		}
     }
-    
-    public int getX()
-    {
-        return this.x;
-    }
-    
-    public int getY()
-    {
-        return this.y;
-    }
-    
-    public void setX(int x)
-    {
-        this.x=x;
-    }
-    
-    public void setY(int y)
-    {
-        this.y=y;
-    }
+	
+	public void setX(int x) 
+        {
+		this.x = x;
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+	/**
+         * method used to create the img
+         * @param g 
+         */
+	
+	public void paint(Graphics g) 
+        {
+		g.drawImage(doom,  x,  y, null);
+	}
 }

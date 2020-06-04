@@ -40,9 +40,9 @@ public class HorseLane extends JPanel{
                 g.fillRect(0, 500, 600, 10);
                 
 		//finish lines
-		g.fillRect(560, 0, 5, 645);
-		g.fillRect(570, 0, 5, 645);
-		g.fillRect(580, 0, 5, 645);
-                this.setSize(600, 500);         //panel size
+		g.fillRect(560, 0, 5, 600);
+		g.fillRect(570, 0, 5, 600);
+		g.fillRect(580, 0, 5, 600);
+                this.setSize(600, 600);         //panel size
 	}
 }
